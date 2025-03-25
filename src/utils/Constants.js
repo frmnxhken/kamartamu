@@ -1,4 +1,4 @@
-export const BASE_URL = "http://192.168.8.97:4321"
+export const BASE_URL = "https://kamartamu.vercel.app/"
 export const PHONE = "6285175059961"
 export const BASE_API_WA = "https://wa.me/"+PHONE+"?text="
 export const INSTAGRAM = "https://www.instagram.com/kamartamuindonesia/"
