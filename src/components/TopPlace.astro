@@ -1,0 +1,50 @@
+---
+import villas from "../assets/data/villa.json";
+import { sliceStr } from "../utils/String";
+---
+<div class="py-24">
+    <div class="container max-w-[1200px] mx-auto px-4">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-3xl sm:text-4xl font-bold">Top Reservation</h2>
+            <div class="flex gap-2">
+                <button id="left" class="bg-slate-200 rounded-full w-[50px] h-[50px] cursor-pointer px-4 py-2">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button id="right" class="bg-slate-200 rounded-full w-[50px] h-[50px] cursor-pointer px-4 py-2">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="relative mt-12">
+            <div id="scrollContainer" class="scroll-hidden flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory">
+            {villas.slice(0,7).map((villa, index) => (
+                <div class={`${index == villas.length - 1 && "mr-6"} relative rounded-xl min-w-[300px] snap-start`}>
+                    <img class="object-cover aspect-3/5 rounded-xl" src={villa.image} alt={`Hotel ${index + 1}`} />
+                    <div class="absolute bottom-0 rounded-xl bg-gradient-to-b from-black/10 to-black/80 w-full h-full px-4 py-6 flex items-end">
+                        <div>
+                            <a href={"/villa/"+villa.slug}>
+                                <h2 class="hover:underline text-white text-lg font-semibold">{villa.name}</h2>
+                            </a>
+                            <p class="text-slate-300 text-sm">{sliceStr(villa.informations.address)}</p>
+                        </div>
+                    </div>
+                </div>
+            ))}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const scrollContainer = document.getElementById("scrollContainer");
+    const leftButton = document.getElementById("left");
+    const rightButton = document.getElementById("right");
+
+    leftButton.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: -400, behavior: "smooth" });
+    });
+
+    rightButton.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: 400, behavior: "smooth" });
+    });
+</script>

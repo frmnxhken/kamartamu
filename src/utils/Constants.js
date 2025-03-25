@@ -1,0 +1,6 @@
+export const BASE_URL = "http://192.168.8.97:4321"
+export const PHONE = "6285175059961"
+export const BASE_API_WA = "https://wa.me/"+PHONE+"?text="
+export const INSTAGRAM = "https://www.instagram.com/kamartamuindonesia/"
+export const TIKTOK = "https://www.tiktok.com/@kamartamuindonesia?_t=8p1vqBLYyRj&_r=1"
+export const FACEBOOK = "https://www.facebook.com/kamartamuindonesia/"

@@ -1,0 +1,25 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import TopPlace from "../components/TopPlace.astro";
+import Testimoni from "../components/Testimoni.astro";
+import { BASE_URL } from "../utils/Constants";
+const metas = {
+    "description": "0851 7505 9961 (WA) Private Villa Jogja, Villa Murah Jogja, Homestay di Jogja, Penginapan di Jogja, Villa di Kaliurang, Rekomendasi Villa Jogja, Sewa Villa di Jogja",
+    "geo.region": "ID",
+    "geo.placename": "Indonesia",
+    "geo.position": "7.8012;110.364661",
+    "ICBM": "-7.8012, 110.364661",
+    "title": "About Us",
+    "image": "https://kamartamu.id/wp-content/uploads/2023/11/tagline-1024x576.png",
+    "url": BASE_URL +"/"
+}
+---
+
+<MainLayout helmets={metas}>
+    <Hero/>
+    <About/>
+    <TopPlace/>
+    <Testimoni/> 
+</MainLayout>

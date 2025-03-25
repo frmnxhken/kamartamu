@@ -1,0 +1,32 @@
+---
+const props = Astro.props;
+---
+<div class="container max-w-[1200px] mx-auto px-4 flex flex-col sm:flex-row gap-x-4 gap-y-2 py-12">
+    <div class="w-full px-4 py-2 rounded-lg border border-slate-300 flex items-center gap-x-2">
+        <div class="w-[70px] border-r border-slate-300 pr-4">
+            <p class="text-sm font-semibold">Location</p>
+        </div>
+        <select id="filter-location" class="outline-0 w-full">
+            <option value="">All</option>
+            <option value="Yogyakarta">Yogyakarta</option>
+        </select>
+    </div>
+    <div class="w-full px-4 py-2 rounded-lg border border-slate-300 flex items-center gap-x-2">
+        <div class="w-[70px] border-r border-slate-300 pr-4">
+            <p class="text-sm font-semibold">Price</p>
+        </div>
+        <select id="filter-price" class="outline-0 w-full">
+            <option value="asc">Murah-Mahal</option>
+            <option value="desc">Mahal-Murah</option>
+        </select>
+    </div>
+    <form id="search-form" class="flex">
+        <div class="w-full px-4 py-2 rounded-lg border border-slate-300 flex items-center gap-x-2">
+            <div class="w-[70px] border-r border-slate-300 pr-4">
+                <p class="text-sm font-semibold">Villa</p>
+            </div>
+            <input id="search-villa" class="outline-0" type="text" placeholder="Find your villa..." />
+        </div>
+        <button type="submit" class="bg-yellow-500 text-white px-4 py-2 text-white text-sm rounded-md">Search</button>
+    </form>
+</div>

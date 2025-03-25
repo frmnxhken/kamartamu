@@ -1,0 +1,63 @@
+---
+const { galleries } = Astro.props;
+---
+
+<div class="relative">
+    <button id="prev-btn" class="nav-btn left-0">
+        <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <button id="next-btn" class="nav-btn right-0">
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  
+    <div id="gallery" class="scroll-container flex flex-nowrap gap-x-4 overflow-x-auto scroll-hidden mt-6 snap-mandatory cursor-grab active:cursor-grabbing">
+      {galleries.map((gallery, index) => (
+        <img class="w-[45%] aspect-square object-cover" src={gallery} alt={`Gallery Image ${index}`} />
+      ))}
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.getElementById("gallery");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        slider.addEventListener("mousedown", (e) => {
+            isDown = true;
+            slider.classList.add("active");
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener("mouseleave", () => {
+            isDown = false;
+            slider.classList.remove("active");
+        });
+
+        slider.addEventListener("mouseup", () => {
+            isDown = false;
+            slider.classList.remove("active");
+        });
+
+        slider.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        prevBtn.addEventListener("click", () => {
+            slider.scrollLeft -= slider.clientWidth / 2;
+        });
+
+        nextBtn.addEventListener("click", () => {
+            slider.scrollLeft += slider.clientWidth / 2;
+        });
+    });    
+</script>

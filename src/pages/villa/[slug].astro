@@ -1,0 +1,81 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import villa from "../../assets/data/villa.json";
+import Gallery from "../../components/Gallery.astro";
+import { BASE_API_WA, BASE_URL } from "../../utils/Constants";
+
+export async function getStaticPaths() {
+  return villa.map(villa => ({
+    params: { slug: villa.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const data = villa.find(villa => villa.slug === slug);
+const bookingMessage = "Hi kak saya ingin memesan "+data?.name
+const metas = {
+    "description": data?.metas.description,
+    "geo.region": data?.metas["geo.region"],
+    "geo.placename": data?.metas["geo.placename"],
+    "geo.position": data?.metas["geo.position"],
+    "ICBM": data?.metas["ICBM"],
+    "title": data?.name,
+    "image": data?.image,
+    "url": BASE_URL + data?.slug
+}
+---
+<MainLayout helmets={metas}>
+    <div class="container max-w-[980px] px-4 mx-auto w-full pb-24">
+        <div class="flex flex-col sm:flex-row justify-between gap-8 pt-6 pb-12">
+            <div class="w-full sm:w-[60%]">
+                <img class="w-full aspect-4/3 object-cover" src={data?.image} alt={data?.name}>
+                <Gallery galleries={data?.galleries}/>
+                <h2 class="text-xl font-bold mt-4">{data?.name}</h2>
+                <p class="text-sm text-slate-600 mt-2">{data?.informations.address}</p>
+                <p class="text-sm mt-4 text-slate-600">{data?.description}</p>
+            </div>
+            <div class="w-full sm:w-[40%]">
+                <div class="sticky top-5">
+                    <h2 class="text-xl font-bold">Facilities</h2>
+                    <div class="flex flex-wrap gap-2 items-center mt-6">
+                        {data?.facilities.map(facility => (
+                            <div class="border border-slate-300 px-4 py-2 text-sm rounded-md text-slate-600">
+                                {facility}    
+                            </div>
+                        ))}
+                    </div>
+                    <div class="border-t border-slate-300 py-2 mt-4">
+                        <h2 class="text-xl font-bold mt-2">Pricing</h2>
+                        <ul class="w-full space-y-2 mt-4">
+                            <li class="flex items-center justify-between">
+                                <h3 class="text-sm text-slate-600">{data?.informations.weekday}</h3>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <h3 class="text-sm text-slate-600">{data?.informations.weekend}</h3>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <h3 class="text-sm text-slate-600">{data?.informations.holliday}</h3>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center gap-2">
+                            <a href={BASE_API_WA + bookingMessage} class="text-center w-full border-2 border-yellow-500 bg-yellow-500 px-6 py-2 text-md text-white rounded-lg mt-6">Booking</a>
+                            <button id="location" class="cursor-pointer w-full bg-transparent border-2 border-yellow-500 px-6 py-2 text-md text-yellow-500 outline-0 rounded-lg mt-6">Location</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <iframe class="hidden aspect-square sm:aspect-video" width="100%" src={data?.location}></iframe>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const locationBtn = document.getElementById("location");
+            
+            locationBtn?.addEventListener("click", () => {
+                document.querySelector("iframe")?.classList.toggle("hidden")
+            });
+
+        });    
+    </script>
+</MainLayout>

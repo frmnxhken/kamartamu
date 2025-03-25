@@ -1,0 +1,39 @@
+[
+    {
+      "name": "John Doe",
+      "photo": "https://randomuser.me/api/portraits/men/1.jpg",
+      "rating": 5,
+      "comment": "The staff was very friendly and always ready to help. I would definitely come back again."
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "photo": "https://randomuser.me/api/portraits/women/2.jpg",
+      "rating": 4,
+      "comment": "The rooms were clean and well-maintained, and the location was perfect for exploring the city."
+    },
+    {
+      "name": "Michael Johnson",
+      "photo": "https://randomuser.me/api/portraits/men/3.jpg",
+      "rating": 5,
+      "comment": "Perfect location and excellent hospitality. Highly recommended! The amenities provided were excellent, and the atmosphere was very relaxing."
+    },
+    {
+      "name": "Emily Davis",
+      "photo": "https://randomuser.me/api/portraits/women/4.jpg",
+      "rating": 3,
+      "comment": "Nice hotel, but the rooms were smaller than expected. The service was decent, but I think it could have been improved in terms of response time."
+    },
+    {
+      "name": "Robert Brown",
+      "photo": "https://randomuser.me/api/portraits/men/5.jpg",
+      "rating": 4,
+      "comment": "Loved the pool area and the friendly staff. Would visit again. The ambiance was lovely, and I really enjoyed the peaceful surroundings."
+    },
+    {
+      "name": "Robert Brown",
+      "photo": "https://randomuser.me/api/portraits/men/6.jpg",
+      "rating": 4,
+      "comment": "The ambiance was lovely, and I really enjoyed the peaceful surroundings."
+    }
+]

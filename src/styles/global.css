@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+.scroll-hidden {
+    overflow-x: hidden;
+}
+
+.scroll-container {
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.left-2 {
+    left: 10px;
+}
+
+.right-2 {
+    right: 10px;
+}

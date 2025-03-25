@@ -1,0 +1,32 @@
+---
+import villas from "../assets/data/villa.json";
+import MainLayout from "../layouts/MainLayout.astro";
+import Card from "../components/Card.astro";
+import { BASE_URL } from "../utils/Constants";
+const metas = {
+    "description": "0851 7505 9961 (WA) Private Villa Jogja, Villa Murah Jogja, Homestay di Jogja, Penginapan di Jogja, Villa di Kaliurang, Rekomendasi Villa Jogja, Sewa Villa di Jogja",
+    "geo.region": "ID",
+    "geo.placename": "Indonesia",
+    "geo.position": "7.8012;110.364661",
+    "ICBM": "-7.8012, 110.364661",
+    "title": "Explore",
+    "image": "https://kamartamu.id/wp-content/uploads/2023/11/tagline-1024x576.png",
+    "url": BASE_URL +"/villa"
+}
+
+---
+<MainLayout helmets={metas}>
+    <div class="container max-w-[1200px] mx-auto pt-12 pb-24 px-4">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-2 sm:gap-x-4 gap-y-8">
+            {villas.map(villa => (
+                <Card 
+                    title={villa.name}
+                    image={villa.image}
+                    address={villa.informations.address}
+                    price={villa.informations.price}
+                    slug={villa.slug}
+                />   
+            ))}
+        </div>
+    </div>
+</MainLayout>

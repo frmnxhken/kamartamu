@@ -1,0 +1,56 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Statistic from "../components/Statistic.astro";
+import { BASE_URL } from "../utils/Constants";
+const features = [
+    {
+      judul: "Privasi dan Kenyamanan Maksimal",
+      deskripsi: "Villa kami dirancang untuk memberikan privasi dan kenyamanan maksimal bagi para tamu. Dengan ruang yang luas, fasilitas lengkap seperti dapur, dan ruang tamu."
+    },
+    {
+      judul: "Lokasi Strategis dengan Pemandangan Indah",
+      deskripsi: "Terletak di lokasi yang strategis, villa kami menawarkan pemandangan alam yang indah dan akses mudah ke berbagai tempat wisata populer. Nikmati keindahan alam sekitar sambil bersantai di villa kami yang nyaman."
+    },
+    {
+      judul: "Fasilitas Lengkap untuk Segala Kebutuhan",
+      deskripsi: "Kami menyediakan berbagai fasilitas lengkap untuk memenuhi segala kebutuhan Anda selama menginap. Kami memastikan Anda mendapatkan pengalaman menginap yang tak terlupakan."
+    },
+    {
+      judul: "Pelayanan Ramah dan Profesional",
+      deskripsi: "Membantu Anda dengan segala kebutuhan selama menginap. Kami berkomitmen untuk memberikan pelayanan terbaik agar Anda merasa nyaman dan puas selama berlibur di villa kami."
+    }
+]
+
+const metas = {
+    "description": "0851 7505 9961 (WA) Private Villa Jogja, Villa Murah Jogja, Homestay di Jogja, Penginapan di Jogja, Villa di Kaliurang, Rekomendasi Villa Jogja, Sewa Villa di Jogja",
+    "geo.region": "ID",
+    "geo.placename": "Indonesia",
+    "geo.position": "7.8012;110.364661",
+    "ICBM": "-7.8012, 110.364661",
+    "title": "About Us",
+    "image": "https://kamartamu.id/wp-content/uploads/2023/11/tagline-1024x576.png",
+    "url": BASE_URL +"/about"
+}
+---
+
+<MainLayout helmets={metas}>
+    <div class="container max-w-[1200px] mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-bold">Kamartamu</h2>
+            </div>
+            <div>
+                <p class="text-sm sm:text-md text-slate-600">Kamar tamu adalah perusahaan hospitality yang bergerak di bidang operator penginapan dengan mengusung konsep bertamu ala Indonesia. Sesuai dengan taglinenya dari treat you as family menjadi bertamu ala indonesia, di Kamar Tamu, Tamu akan merasakan suasana bertamu ala Indonesia dari keramahtamahan terbaik yang ditunjukan Tuan Rumah dan dari standar fasilitas Kamar tamu yang mencerminkan budaya tempat Tamu menginap.</p>
+            </div>
+        </div>
+        <Statistic/>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mt-8 sm:mt-12">
+            {features.map(feature => (
+                <div class="cursor-pointer hover:bg-gray-900 hover:text-white border border-slate-300 px-4 sm:px-6 py-4 sm:py-2 rounded-md">
+                    <h2 class="text-sm sm:text-lg font-bold text-left">{feature.judul}</h2>
+                    <p class="hover:text-slate-300 text-sm mt-4 text-slate-600">{feature.deskripsi}</p>
+                </div>
+            ))}
+        </div>  
+    </div>
+</MainLayout>

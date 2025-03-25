@@ -1,0 +1,52 @@
+---
+import Footer from "../components/ui/Footer.astro";
+import Navbar from "../components/ui/Navbar.astro";
+import "../styles/global.css";
+const { helmets } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="https://kamartamu.id/wp-content/uploads/2023/11/tagline-1024x576.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{ helmets?.title }</title>
+    <meta name="description" content={helmets?.description}/>
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content={helmets['geo.region']} />
+    <meta name="geo.placename" content={helmets['geo.placename']} />
+    <meta name="geo.position" content={helmets['geo.position']} />
+    <meta name="ICBM" content={helmets?.ICBM} />
+
+    <!-- Schema.org markup -->
+    <meta itemprop="name" content={helmets?.title}>
+    <meta itemprop="description" content={helmets?.description}>
+
+     <!-- Open Graph data -->
+    <meta property="og:title" content={helmets?.title}>
+    <meta property="og:image" content={helmets?.image}>
+    <meta property="og:url" content={helmets?.url} />
+    <meta property="og:description" content={helmets?.description}/>
+    <meta property="og:site_name" content={helmets?.title} />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Other Link Rel -->
+    <link rel="canonical" href={helmets?.url} />
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://kamartamu.id/wp-content/uploads/2023/11/tagline-1024x576.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <body>
+    <Navbar/>
+    <slot />
+    <Footer/>
+  </body>
+</html>

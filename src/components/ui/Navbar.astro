@@ -1,0 +1,26 @@
+<nav class="bg-white w-full z-20 transition-all">
+    <div class="container mx-auto max-w-[1200px]">
+        <img class="w-[80px] mx-auto py-4" src="https://kamartamu.id/wp-content/uploads/2023/11/tagline-1024x576.png" alt="logo"/>
+        <div class="py-4 flex items-center justify-center gap-x-12 sm:gap-x-16 text-sm border-t border-slate-300">
+            <a class="nav-link text-slate-500" href="/">Home</a>
+            <a class="nav-link text-slate-500" href="/about">About</a>
+            <a class="nav-link text-slate-500" href="/villa">Villa</a>
+            <a>Contact</a>
+        </div>
+    </div>
+</nav>
+
+<script :load>
+    document.addEventListener("DOMContentLoaded", () => {
+        let currentLoc = 
+            window.location.pathname === '/' ? window.location.pathname :
+            window.location.pathname.replace(/\/$/, '');
+            
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.getAttribute("href") === currentLoc) {
+                link.classList.remove("text-slate-500");
+                link.classList.add("text-black", "font-bold");
+            }
+        });
+    });
+</script>
